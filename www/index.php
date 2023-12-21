@@ -21,14 +21,14 @@ while($i < sizeof($transiscope['data']))
 		$i++;
 		continue;
 	}
-	echo $transiscope['data'][$i]["name"]."\n";
-	echo " ". $transiscope['data'][$i]["sourceKey"]."\n";
-	echo " : ". $transiscope['data'][$i]["abstract"]."\n";
-	echo " @ ". $transiscope['data'][$i]["address"]["addressLocality"]."\n";
-	if(isset($transiscope['data'][$i]["website"])) echo " / ". $transiscope['data'][$i]["website"]."\n";
+	echo $transiscope['data'][$i]["name"].EndLine();
+	echo " ". $transiscope['data'][$i]["sourceKey"].EndLine();
+	echo " : ". $transiscope['data'][$i]["abstract"].EndLine();
+	echo " @ ". $transiscope['data'][$i]["address"]["addressLocality"].EndLine();
+	if(isset($transiscope['data'][$i]["website"])) echo " / ". $transiscope['data'][$i]["website"].EndLine();
 	while($j < sizeof($transiscope['data'][$i]["categories"]))
 	{
-		echo " - ".$transiscope['data'][$i]["categories"][$j]."\n";
+		echo " - ".$transiscope['data'][$i]["categories"][$j].EndLine();
 		$j++;
 	}
 	$i++;

@@ -1,5 +1,10 @@
 <?php
 
+function EndLine()
+{
+	if(php_sapi_name() == "cli") return ("\n");
+	return ("<br>");
+}
 function CallCurl($url)
 {
     $curl = curl_init();
