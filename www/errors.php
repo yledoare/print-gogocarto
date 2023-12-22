@@ -1,5 +1,6 @@
 <?php
 
+include("fpdf/fpdf.php");
 include("functions.php");
 
 if(php_sapi_name() != "cli") 
@@ -26,12 +27,14 @@ while($i < sizeof($transiscope['data']))
 	if (!isset($transiscope['data'][$i]["abstract"]))
 	{
 		echo "No Abstract for ". $transiscope['data'][$i]["name"].EndLine();
+		echo "Source is ". $transiscope['data'][$i]["sourceKey"].EndLine().EndLine();
 		$i++;
 		continue;
 	}
 	if (!isset($transiscope['data'][$i]["address"]["addressLocality"]))
 	{
 		echo "No addressLocality for ". $transiscope['data'][$i]["name"] . EndLine();
+		echo "Source is ". $transiscope['data'][$i]["sourceKey"].EndLine();
 		$i++;
 		continue;
 	}

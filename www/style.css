@@ -26,7 +26,7 @@ html body {
   background-color: #EDEEE9;
   color: #303030;
   font-family: "Inter", sans-serif;
-  min-height: 100vh;
+  min-height: 50vh;
   width: 100%;
   padding: 2.5vh 10vw;
   display: flex;
