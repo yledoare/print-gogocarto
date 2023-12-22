@@ -12,7 +12,7 @@ function CallCurl($url)
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
     $result = curl_exec($curl);
-    if(!$result) die("KO");
+    if(!$result) die("$url KO");
     curl_close($curl);
 
     return $result;

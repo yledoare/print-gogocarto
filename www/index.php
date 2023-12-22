@@ -1,35 +1,24 @@
-<?php
-
-include("functions.php");
-
-$choice="https://transiscope.gogocarto.fr/api/elements.json?bounds=-4.57031%2C47.50236%2C-3.42773%2C48.26857";
-$json=CallCurl($choice);
-
-$i=0;
-$j=0;
-$transiscope=json_decode($json, true);
-while($i < sizeof($transiscope['data']))
-{
-	//if (!isset($transiscope['data'][$i]["abstract"])) continue;
-	if (!isset($transiscope['data'][$i]["abstract"]))
-	{
-		$i++;
-		continue;
-	}
-	if (!isset($transiscope['data'][$i]["address"]["addressLocality"]))
-	{
-		$i++;
-		continue;
-	}
-	echo $transiscope['data'][$i]["name"].EndLine();
-	echo " ". $transiscope['data'][$i]["sourceKey"].EndLine();
-	echo " : ". $transiscope['data'][$i]["abstract"].EndLine();
-	echo " @ ". $transiscope['data'][$i]["address"]["addressLocality"].EndLine();
-	if(isset($transiscope['data'][$i]["website"])) echo " / ". $transiscope['data'][$i]["website"].EndLine();
-	while($j < sizeof($transiscope['data'][$i]["categories"]))
-	{
-		echo " - ".$transiscope['data'][$i]["categories"][$j].EndLine();
-		$j++;
-	}
-	$i++;
-}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - CSS-Only Floating Labels</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>Print GoGoCarto</h1>
+  <div class="container">
+    <div class="cta-form">
+      <h2>Que voulez-vous imprimer ?</h2> 
+    <p></p>
+    </div>
+    <form action="print.php" class="form" method="POST">
+      <input type="text" placeholder="Name" class="form__input" name="title" id="title" value="My GoGoCartoPrint"/>
+      <label for="name" class="form__label">Name</label>
+      <input type="text" placeholder="Subject" class="form__input" name="zone" id="zone" value="https://transiscope.gogocarto.fr/api/elements.json?bounds=-4.57031%2C47.50236%2C-3.42773%2C48.26857" />
+      <label for="subject" class="form__label">Zone</label>
+      <button class="form__input">Go!</button>
+    </form>
+  </div>
+</body>
+</html>

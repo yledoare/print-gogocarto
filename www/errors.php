@@ -2,8 +2,19 @@
 
 include("functions.php");
 
-$choice="https://transiscope.gogocarto.fr/api/elements.json?bounds=-4.57031%2C47.50236%2C-3.42773%2C48.26857";
-$json=CallCurl($choice);
+if(php_sapi_name() != "cli") 
+{
+	if(!isset($_POST["zone"])) die("No Zone");
+	if(!isset($_POST["title"])) die("No Title");
+}
+else
+{
+	$zone="https://transiscope.gogocarto.fr/api/elements.json?bounds=-4.57031%2C47.50236%2C-3.42773%2C48.26857";
+	$title="My GoGoCartoPrint";
+}
+
+$zone="https://transiscope.gogocarto.fr/api/elements.json?bounds=-4.57031%2C47.50236%2C-3.42773%2C48.26857";
+$json=CallCurl($zone);
 
 $i=0;
 
