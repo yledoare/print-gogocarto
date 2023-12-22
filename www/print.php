@@ -27,6 +27,7 @@ $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',32);
 $pdf->Cell(40,10,$title);
+if(is_file('logo.png'))
 $pdf->Image('logo.png',10,32,100,100,'','https://www.transiscope.org/');
 $pdf->AddPage();
 
